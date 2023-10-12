@@ -1,0 +1,63 @@
+/**
+Author - Sahil Dhingra
+Git - https://github.com/sahildhingra-221
+**/
+
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: all 0.15s ease-in-out;
+}
+
+body {
+  background-color: #FAFAFE;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+a, button {
+  text-decoration: none;
+  outline: 0;
+  border: 0;
+}
+
+.btn {
+	padding: 10px 30px;
+	border-radius: 5px;
+	display: inline-flex;
+	align-items: center;
+	overflow: hidden;
+	cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background-color: #6725F4;
+  border-color: #6725F4;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  color: #6725F4;
+  background-color: #fff; 
+}
+
+.btn img {
+  height: 22px;
+  margin-left: 15px;
+}
+
+.btn:hover img {
+  filter: invert(1) brightness(1000);
+}
+
+.d-block {
+  display: block!important;
+}
