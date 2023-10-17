@@ -12,7 +12,6 @@ import handleDivider from './handleDivider';
 import handleMagicButton from './handleMagicButton';
 import handleStaticTable from './handleStaticTable';
 import handleJSONTable from './jsonToTable';
-import handleDiagrams from './handleDiagram';
 
 export {
   handleImage,
@@ -23,6 +22,5 @@ export {
   handleDivider,
   handleMagicButton,
   handleStaticTable,
-  handleJSONTable,
-  handleDiagrams
+  handleJSONTable
 };

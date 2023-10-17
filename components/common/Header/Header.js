@@ -17,7 +17,8 @@ const wealthyLogo = `${appEnv.WEALTHY_CDN}/wealthy-home-page/wealthy-logo-purple
 const dropdownIcon = `${appEnv.WEALTHY_CDN}/insights-new-release/articles/purple-arrow.png`;
 
 const Header = ({
-  handleLogout
+  handleLogout,
+  details
 }) => (
   <HeaderWrapper>
     <HeaderBar>
@@ -31,10 +32,10 @@ const Header = ({
         <UserImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU" />
         <UserDetail>
           <UserName>
-            Sahil Dhingra
+              {details.firstName.charAt(0).toUpperCase() + details.firstName.slice(1)}
           </UserName>
           <UserId>
-            sahil.dhi...
+           {details.email}
           </UserId>
         </UserDetail>
         <IconDd src={dropdownIcon} />

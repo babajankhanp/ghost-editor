@@ -4,8 +4,9 @@ Git - https://github.com/sahildhingra-221
 * */
 
 import React from 'react';
-import styled from 'styled-components';
-
+import styled, {
+  keyframes
+} from 'styled-components';
 import {
   appEnv
 } from '@/helpers';
@@ -14,6 +15,7 @@ import {
 } from '@/constants';
 
 const wealthyLogo = `${appEnv.WEALTHY_CDN}/wealthy-home-page/wealthy-logo-purple.png`;
+const mailerPreview = `${appEnv.WEALTHY_CDN}/articles/mailer-preview.png`;
 
 const LoginPage = ({
   handleLogin,
@@ -28,7 +30,16 @@ const LoginPage = ({
           <Title>Welcome to Wealthy Mailer</Title>
           <Subline>Login to create templates for email</Subline>
           <UserMail>
-            <MailInput value={userMail} onChange={(e) => setUserMail(e.target.value)} placeholder="Enter email..." />
+            <MailInput
+              value={userMail}
+              onChange={(e) => setUserMail(e.target.value)}
+              placeholder="Enter email..."
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleLogin();
+                }
+              }}
+            />
             <LoginBtn onClick={handleLogin}>
               <i className="fas fa-long-arrow-alt-right" />
             </LoginBtn>
@@ -58,6 +69,11 @@ const LoginPage = ({
         </Copyright>
       </ContentSection>
     </FormWrapper>
+    <LoginImageWrapper>
+      <AnimatedText> Template</AnimatedText>
+      <LoginImage src={mailerPreview} />
+    </LoginImageWrapper>
+
   </MainWrapper>
 );
 
@@ -69,6 +85,7 @@ const MainWrapper = styled.div`
 const FormWrapper = styled.div`
   width: 40%;
   background-color: #fff;
+  flex: 1;
 `;
 
 const UserMail = styled.div`
@@ -129,6 +146,48 @@ const Subline = styled.p`
 const Copyright = styled.p`
   font-size: 14px;
   color: ${colors.textSecondry};
+`;
+
+const LoginImageWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+    position: relative;
+    flex:1;
+    /* background: linear-gradient(to right, #7f00ff, #e100ff); */
+      background: linear-gradient(to right, #1c92d2, #f2fcfe); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+`;
+const LoginImage = styled.img`
+   width: 90%;
+`;
+
+const shimmer = keyframes`
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+`;
+
+const AnimatedText = styled.h6`
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: ${shimmer} 2s linear infinite;
+  display: inline-block;
+  font-size: 90px;
+  margin-bottom: 2rem;
 `;
 
 export default LoginPage;
