@@ -53,6 +53,32 @@ const DashbaordContainer = () => {
     }
   };
 
+
+  const handleDeleteTemplate = async (templateId) => {
+  try {
+    const fetchApi = await fetch('/api/template/delete', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id: templateId })
+    });
+
+    const res = await fetchApi.json();
+    console.log(res, '<-- delete response');
+
+    if (res.success) {
+      console.log('Template deleted successfully');
+      fetchData();
+    } else {
+      console.error('Failed to delete template:', res.message);
+    }
+  } catch (error) {
+    console.error('Error deleting template:', error);
+  }
+};
+
+console.log("template",templates?.id)
   useEffect(() => {
     checkUserAuthenticated();
     fetchData();
@@ -61,6 +87,7 @@ const DashbaordContainer = () => {
   return (
     <Dashbaord
       handleCreateTemplate={handleCreateTemplate}
+      handleDeleteTemplate={handleDeleteTemplate}
       templates={templates}
       isCreating={isCreating}
     />

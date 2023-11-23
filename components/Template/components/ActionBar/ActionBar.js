@@ -28,7 +28,9 @@ const ActionBar = ({
 }) => (
   <div>
     <ActionBarWrapper>
-      <TemplateName id="templateName" contentEditable>{templateName}</TemplateName>
+      {
+        templateName !== null ?(<TemplateName id="templateName" contentEditable>{templateName}</TemplateName>) : (<TemplateNameInput id="templateName" contentEditable></TemplateNameInput>)
+      }
       <TemplateSettings>
         Template
         <input id="templateWidth" placeholder="650" type="number" onKeyUp={(e) => handleTemplateWidth(e)} />
@@ -101,6 +103,20 @@ const TemplateName = styled.h3`
     border-bottom: 1px solid #ececec;
   }
 `;
+
+const TemplateNameInput = styled.input`
+  color: #ececec;
+  font-weight: 400;
+  font-size: 15px;
+  outline: 0;
+  width: fit-content;
+  border: 1px solid transparent;
+  padding-bottom: 2px;
+
+  &:hover {
+    border-bottom: 1px solid #ececec;
+  }
+`
 
 const TemplateSettings = styled.div`
   margin: 0 auto;

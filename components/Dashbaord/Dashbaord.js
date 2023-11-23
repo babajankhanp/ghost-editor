@@ -6,6 +6,8 @@ Git - https://github.com/sahildhingra-221
 import React from 'react';
 import styled from 'styled-components';
 import parse from 'html-react-parser';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye,faTrash } from '@fortawesome/free-regular-svg-icons';
 
 import {
   colors
@@ -15,9 +17,12 @@ import {
   Header
 } from '../common';
 
+const trashIcon = "https://i.wlycdn.com/articles/trash.png"
+
 const Dashbaord = ({
   handleCreateTemplate,
   templates,
+  handleDeleteTemplate,
   isCreating
 }) => (
   <>
@@ -40,13 +45,19 @@ const Dashbaord = ({
           {
             templates.length ? (
               templates.map((template) => (
-                <TemplateItem key={template?.id} href={`/template/${template?._id}`}>
+                <TemplateItem key={template?.id} href={`/template/${template?._id}`} >
                   <TemplatePreview>
                     {parse(template?.template_data || '')}
                   </TemplatePreview>
                   <TemplateInfo>
-                    <TemplateName>{template?.name}</TemplateName>
-                    <TemplateAuthor>{template?.author_email}</TemplateAuthor>
+                    <TemplateName>Name:{template?.name}</TemplateName>
+                    <TemplateAuthor>Author:{template?.author_email}</TemplateAuthor>
+                    <TemplateActionsWrapper>
+                   <View href={`/template/${template?._id}`}>
+                      <StyledIcon icon={faEye} />
+                   </View>
+                    <StyledTrashIcon onClick={() => handleDeleteTemplate(template?._id)} src={trashIcon} />
+                    </TemplateActionsWrapper>
                   </TemplateInfo>
                 </TemplateItem>
               ))
@@ -79,6 +90,8 @@ const TemplatesGridWrapper = styled.div`
   padding: 30px 0;
 `;
 
+const View = styled.a``
+
 const TemplateItem = styled.a`
   display: block;
   border: 1px solid #eaeaea;
@@ -90,6 +103,26 @@ const TemplateItem = styled.a`
     transform: translateY(-10px);
     box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.1);
   }
+`;
+
+const TemplateActionsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 0.2rem 2rem;
+
+`
+const StyledIcon = styled(FontAwesomeIcon)`
+  color: #007bff;
+  font-size: 24px;
+  cursor: pointer;
+`;
+
+const StyledTrashIcon = styled.img`
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 `;
 
 const TemplatePreview = styled.div`
@@ -134,5 +167,9 @@ const Button = styled.button`
     cursor: not-allowed;
   }
 `;
+
+const ActionButtons = styled.button`
+  padding: 0.5rem;
+`
 
 export default Dashbaord;
