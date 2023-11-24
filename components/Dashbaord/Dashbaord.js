@@ -45,7 +45,7 @@ const Dashbaord = ({
           {
             templates.length ? (
               templates.map((template) => (
-                <TemplateItem key={template?.id} href={`/template/${template?._id}`} >
+                <TemplateItem key={template?.id} >
                   <TemplatePreview>
                     {parse(template?.template_data || '')}
                   </TemplatePreview>

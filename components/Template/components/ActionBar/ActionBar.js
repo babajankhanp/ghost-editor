@@ -29,7 +29,7 @@ const ActionBar = ({
   <div>
     <ActionBarWrapper>
       {
-        templateName !== null ?(<TemplateName id="templateName" contentEditable>{templateName}</TemplateName>) : (<TemplateNameInput id="templateName" contentEditable></TemplateNameInput>)
+        templateName !== null ?(<TemplateName id="templateName" contentEditable>{templateName}</TemplateName>) : (<TemplateNameInput id="templateName" contentEditable placeholder='Your Template Name'></TemplateNameInput>)
       }
       <TemplateSettings>
         Template
