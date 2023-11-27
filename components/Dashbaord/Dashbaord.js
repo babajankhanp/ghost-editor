@@ -8,6 +8,8 @@ import styled from 'styled-components';
 import parse from 'html-react-parser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye,faTrash } from '@fortawesome/free-regular-svg-icons';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   colors
@@ -26,6 +28,7 @@ const Dashbaord = ({
   isCreating
 }) => (
   <>
+   <ToastContainer />
     <Header />
     <TemplatesListWrapper>
       <Container>
@@ -98,6 +101,7 @@ const TemplateItem = styled.a`
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 10px 10px 30px -13px rgba(0,0,0,0.1);
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-10px);

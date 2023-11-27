@@ -6,9 +6,10 @@ Git - https://github.com/sahildhingra-221
 import React, {
   useEffect, useState
 } from 'react';
+import {toast} from "react-toastify";
 
 import {
-  checkUserAuthenticated
+  checkUserAuthenticated,
 } from '@/helpers';
 
 import Dashbaord from './Dashbaord';
@@ -16,6 +17,8 @@ import Dashbaord from './Dashbaord';
 const DashbaordContainer = () => {
   const [templates, setTemplates] = useState([]);
   const [isCreating, setIsCreating] = useState(false);
+
+
   const fetchData = async () => {
     try {
       const fetchApi = await fetch('/api/template/all', {
@@ -67,9 +70,12 @@ const DashbaordContainer = () => {
     const res = await fetchApi.json();
     console.log(res, '<-- delete response');
 
-    if (res.success) {
+    if (res.success!=false) {
       console.log('Template deleted successfully');
       fetchData();
+      toast.success(res.message, {
+      position: toast.POSITION.TOP_RIGHT,
+    });
     } else {
       console.error('Failed to delete template:', res.message);
     }
