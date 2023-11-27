@@ -46,8 +46,8 @@ const Dashbaord = ({
         </SectionHeader>
         <TemplatesGridWrapper>
           {
-            templates.length ? (
-              templates.map((template) => (
+            templates?.length ? (
+              templates?.map((template) => (
                 <TemplateItem key={template?.id} >
                   <TemplatePreview>
                     {parse(template?.template_data || '')}
