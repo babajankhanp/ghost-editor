@@ -30,15 +30,6 @@ app
 
     server.get('/health', (req, res) => res.send('Hello From GhostWriter!'));
 
-    server.get('/', (req, res) => {
-      res.redirect('/login');
-    });
-
-    server.get('/login', (req, res) => {
-      const actualPage = '/login';
-      const queryParams = {id: req.params.id};
-      app.render(req, res, actualPage, queryParams);
-    });
 
     server.get('/dashboard', (req, res) => {
       const actualPage = '/dashboard';

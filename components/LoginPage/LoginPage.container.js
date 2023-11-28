@@ -8,10 +8,15 @@ import React, {
   useState
 } from 'react';
 
+import { useGoogleAuth } from '@react-oauth/google';
+
 import LoginPage from './LoginPage';
 
 const LoginPageContainer = () => {
   const [userMail, setUserMail] = useState('');
+  const { isAuthenticated } = useGoogleAuth();
+  console.log("Details:", isAuthenticated)
+
 
   const handleLogin = async () => {
     if (userMail.includes('@wealthy.in')) {

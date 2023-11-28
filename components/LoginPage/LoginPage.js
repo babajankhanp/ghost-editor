@@ -7,6 +7,8 @@ import React from 'react';
 import styled, {
   keyframes
 } from 'styled-components';
+import { GoogleLogin } from '@react-oauth/google';
+
 import {
   appEnv
 } from '@/helpers';
@@ -29,6 +31,14 @@ const LoginPage = ({
         <AuthWrapper>
           <Title>Welcome to Wealthy Mailer</Title>
           <Subline>Login to create templates for email</Subline>
+          <GoogleLogin
+  onSuccess={credentialResponse => {
+    console.log("credentials",credentialResponse);
+  }}
+  onError={() => {
+    console.log('Login Failed');
+  }}
+/>
           <UserMail>
             <MailInput
               value={userMail}

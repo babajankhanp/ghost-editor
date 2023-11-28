@@ -6,14 +6,13 @@ Git - https://github.com/sahildhingra-221
 import React, {
   useEffect
 } from 'react';
+import LoginPage from '@/components/LoginPage/LoginPage';
 
 const index = () => {
-  useEffect(() => {
-    window.location.href = '/login';
-  }, []);
+
 
   return (
-    <div />
+   <LoginPage />
   );
 };
 
