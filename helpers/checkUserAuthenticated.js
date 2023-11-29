@@ -2,11 +2,18 @@
 Author - Sahil Dhingra
 Git - https://github.com/sahildhingra-221
 * */
+"use client";
+
+import { useUser } from "@clerk/clerk-react";
+
+import { useAuth } from "@clerk/nextjs";
+
+
 
 const checkUserAuthenticated = () => {
-  const wealthyEmail = localStorage.getItem('wealthy_email');
-  if (!wealthyEmail) {
-    window.location.href = '/login';
+  const { isLoaded, userId, sessionId, getToken } = useAuth();
+  if (!userId) {
+    window.location.href = '/';
   }
 };
 

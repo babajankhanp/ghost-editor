@@ -38,21 +38,6 @@ const LoginPage = ({
           >
             <LoginBtn> Sign In</LoginBtn>
           </SignInButton>
-          <UserMail>
-            <MailInput
-              value={userMail}
-              onChange={(e) => setUserMail(e.target.value)}
-              placeholder="Enter email..."
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  handleLogin();
-                }
-              }}
-            />
-            <LoginBtn onClick={handleLogin}>
-              <i className="fas fa-long-arrow-alt-right" />
-            </LoginBtn>
-          </UserMail>
           {/* <div
             id="g_id_onload"
             data-client_id="325665231230-l7sh66odkdhskhd59ele4469neihk095.apps.googleusercontent.com"

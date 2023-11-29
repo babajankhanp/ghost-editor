@@ -8,6 +8,8 @@ import React, {
 } from 'react';
 import {toast} from "react-toastify";
 import { useUser } from "@clerk/clerk-react";
+import { useAuth } from "@clerk/nextjs";
+
 
 import {
   checkUserAuthenticated,
@@ -18,8 +20,9 @@ import Dashbaord from './Dashbaord';
 const DashbaordContainer = () => {
   const [templates, setTemplates] = useState([]);
   const [isCreating, setIsCreating] = useState(false);
-   const { isLoaded, isSignedIn, user } = useUser();
-   console.log("user",user)
+  const { user } = useUser();
+  const { isLoaded, userId, sessionId, getToken } = useAuth();
+
 
   const fetchData = async () => {
     try {
@@ -85,6 +88,14 @@ const DashbaordContainer = () => {
     console.error('Error deleting template:', error);
   }
 };
+
+  const checkUserAuthenticated = () => {
+    console.log("hellooooooooooooo")
+     if (!isLoaded || !userId) {
+      window.location.href = '/';
+  }
+  }
+console.log("userId", userId)
 
 console.log("template",templates?.id)
   useEffect(() => {

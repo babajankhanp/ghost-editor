@@ -8,6 +8,8 @@ import React, {
   useEffect
 } from 'react';
 
+import { useAuth } from "@clerk/nextjs";
+
 import Template from './Template';
 import {
   rgbToHex,
@@ -17,6 +19,8 @@ import {
 
 const TemplateContext = React.createContext();
 
+import { SignedIn, SignedOut, SignInButton, SignOutButton } from "@clerk/nextjs";
+
 const TemplateContainer = ({
   templateId
 }) => {
@@ -25,6 +29,8 @@ const TemplateContainer = ({
   const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
   const [isPreviewHtml, setIsPreviewHtml] = useState('');
   const [templateName, setTemplateName] = useState('');
+
+  const { isLoaded, userId, sessionId, getToken } = useAuth();
 
   const openPreviewModal = () => {
     previewHtml();
@@ -75,9 +81,15 @@ const TemplateContainer = ({
     } catch (err) {}
   };
 
-  useEffect(() => {
-    checkUserAuthenticated();
-  }, []);
+  const checkUserAuthenticated = () => {
+    console.log("hellooooooooooooo")
+     if (!isLoaded || !userId) {
+      window.location.href = '/';
+  }
+  }
+console.log("userId", userId)
+
+
 
   const fetchTemplate = async () => {
     let res;

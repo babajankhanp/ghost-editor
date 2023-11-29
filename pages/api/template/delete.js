@@ -10,13 +10,16 @@ import {
  ObjectId
 } from 'mongodb';
 
-const MONGODB_URI = 'mongodb+srv://sahildhingra:dhingra123@cluster0.b4wkhun.mongodb.net/ghostwriter?retryWrites=true&w=majority';
+import { appEnv } from '@/helpers';
+
+  const mongoUri = `${appEnv.MONGO_DB_URI}`
 
 export default async function handler(req, res) {
   if (req.method === 'DELETE') {
     try {
-      const client = await MongoClient.connect(MONGODB_URI);
+      const client = await MongoClient.connect(mongoUri);
       const db = client.db();
+      console.log('Connected to the database');
 
       const templateId = req.body.id;
       const template = await db.collection('templates').findOne({ _id: new ObjectId(templateId) });

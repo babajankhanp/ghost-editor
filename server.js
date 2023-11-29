@@ -24,12 +24,11 @@ app
   .prepare()
   .then(() => {
     const server = express();
-    // server.use((req, res, next) => {
-    //   enforceStrictRouting(req, res, next);
-    // });
+    server.use((req, res, next) => {
+      enforceStrictRouting(req, res, next);
+    });
 
     server.get('/health', (req, res) => res.send('Hello From GhostWriter!'));
-
 
     server.get('/dashboard', (req, res) => {
       const actualPage = '/dashboard';
@@ -42,6 +41,7 @@ app
       const queryParams = {
         templateId: req.params.templateId
       };
+      console.log("query params",queryParams)
       app.render(req, res, actualPage, queryParams);
     });
 
