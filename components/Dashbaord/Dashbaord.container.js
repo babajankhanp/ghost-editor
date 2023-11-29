@@ -86,7 +86,7 @@ const DashbaordContainer = () => {
 
 console.log("template",templates?.id)
   useEffect(() => {
-    checkUserAuthenticated();
+    // checkUserAuthenticated();
     fetchData();
   }, []);
 

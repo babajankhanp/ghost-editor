@@ -7,7 +7,8 @@ import React from 'react';
 import styled, {
   keyframes
 } from 'styled-components';
-import { GoogleLogin } from '@react-oauth/google';
+
+import { SignedIn, SignedOut, SignInButton, SignOutButton } from "@clerk/nextjs";
 
 import {
   appEnv
@@ -31,14 +32,12 @@ const LoginPage = ({
         <AuthWrapper>
           <Title>Welcome to Wealthy Mailer</Title>
           <Subline>Login to create templates for email</Subline>
-          <GoogleLogin
-  onSuccess={credentialResponse => {
-    console.log("credentials",credentialResponse);
-  }}
-  onError={() => {
-    console.log('Login Failed');
-  }}
-/>
+          <SignInButton
+           mode="modal"
+           redirectUrl="/dashboard"
+          >
+            <LoginBtn> Sign In</LoginBtn>
+          </SignInButton>
           <UserMail>
             <MailInput
               value={userMail}

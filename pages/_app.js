@@ -1,13 +1,13 @@
 import '@/styles/common.css';
-import { GoogleOAuthProvider } from '@react-oauth/google';
-import { GOOGLE_OAUTH_CONFIG } from '@/oauth.config';
+import { ClerkProvider } from "@clerk/nextjs";
+
 
 export default function App({Component, pageProps}) {
   return (
     <>
-    <GoogleOAuthProvider clientId={GOOGLE_OAUTH_CONFIG?.clientId}>
-    <Component {...pageProps} />
-    </GoogleOAuthProvider>
+   <ClerkProvider {...pageProps}>
+      <Component {...pageProps} />
+    </ClerkProvider>
     </>
   );
 }
