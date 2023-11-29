@@ -8,13 +8,16 @@ import React, {
   useState
 } from 'react';
 
+import { useUser, currentUser } from "@clerk/clerk-react";
 
 import LoginPage from './LoginPage';
 
-const LoginPageContainer = () => {
+const LoginPageContainer = async () => {
   const [userMail, setUserMail] = useState('');
 
+  const user = await currentUser();
 
+  console.log("name", user?.firstName)
 
   const handleLogin = async () => {
     if (userMail.includes('@wealthy.in')) {

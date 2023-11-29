@@ -7,6 +7,7 @@ import React, {
   useEffect, useState
 } from 'react';
 import {toast} from "react-toastify";
+import { useUser } from "@clerk/clerk-react";
 
 import {
   checkUserAuthenticated,
@@ -17,7 +18,8 @@ import Dashbaord from './Dashbaord';
 const DashbaordContainer = () => {
   const [templates, setTemplates] = useState([]);
   const [isCreating, setIsCreating] = useState(false);
-
+   const { isLoaded, isSignedIn, user } = useUser();
+   console.log("user",user)
 
   const fetchData = async () => {
     try {
@@ -43,7 +45,7 @@ const DashbaordContainer = () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({author_email: localStorage.getItem('wealthy_email')})
+        body: JSON.stringify({author_email:user?.firstName})
       });
       const res = await fetchApi.json();
       console.log(res, '<-- res');

@@ -10,7 +10,7 @@ import {
  ObjectId
 } from 'mongodb';
 
-const MONGODB_URI = 'mongodb+srv://mytemp12578:9866178972Pb@mymongo.lp6eyqm.mongodb.net/?retryWrites=true&w=majority';
+const MONGODB_URI = 'mongodb+srv://sahildhingra:dhingra123@cluster0.b4wkhun.mongodb.net/ghostwriter?retryWrites=true&w=majority';
 
 export default async function handler(req, res) {
   if (req.method === 'DELETE') {
