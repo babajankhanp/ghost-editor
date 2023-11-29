@@ -20,12 +20,14 @@ import Dashbaord from './Dashbaord';
 const DashbaordContainer = () => {
   const [templates, setTemplates] = useState([]);
   const [isCreating, setIsCreating] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
   const { user } = useUser();
   const { isLoaded, userId, sessionId, getToken } = useAuth();
 
 
   const fetchData = async () => {
     try {
+      setIsLoading(true)
       const fetchApi = await fetch('/api/template/all', {
         method: 'GET',
         headers: {
@@ -34,15 +36,17 @@ const DashbaordContainer = () => {
       });
       const res = await fetchApi.json();
       setTemplates(res?.data);
+      setIsLoading(false)
       console.log(res, '<-- res');
     } catch (error) {
       console.log(error);
+      setIsLoading(false)
     }
   };
 
   const handleCreateTemplate = async () => {
-    setIsCreating(true);
     try {
+      setIsCreating(true);
       const fetchApi = await fetch('/api/template/create', {
         method: 'POST',
         headers: {
@@ -51,6 +55,7 @@ const DashbaordContainer = () => {
         body: JSON.stringify({author_email:user?.firstName})
       });
       const res = await fetchApi.json();
+      setIsCreating(false);
       console.log(res, '<-- res');
       if (res?.data?.insertedId) {
         window.location.href = `/template/${res?.data?.insertedId}`;
@@ -64,6 +69,7 @@ const DashbaordContainer = () => {
 
   const handleDeleteTemplate = async (templateId) => {
   try {
+     setIsLoading(true)
     const fetchApi = await fetch('/api/template/delete', {
       method: 'DELETE',
       headers: {
@@ -73,6 +79,7 @@ const DashbaordContainer = () => {
     });
 
     const res = await fetchApi.json();
+    setIsLoading(false)
     console.log(res, '<-- delete response');
 
     if (res.success!=false) {
@@ -86,6 +93,7 @@ const DashbaordContainer = () => {
     }
   } catch (error) {
     console.error('Error deleting template:', error);
+     setIsLoading(false)
   }
 };
 
@@ -109,6 +117,7 @@ console.log("template",templates?.id)
       handleDeleteTemplate={handleDeleteTemplate}
       templates={templates}
       isCreating={isCreating}
+      isLoading={isLoading}
     />
   );
 };
