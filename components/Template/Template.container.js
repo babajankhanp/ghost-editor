@@ -82,14 +82,10 @@ const TemplateContainer = ({
   };
 
   const checkUserAuthenticated = () => {
-    console.log("hellooooooooooooo")
      if (!isLoaded || !userId) {
       window.location.href = '/';
   }
   }
-console.log("userId", userId)
-
-
 
   const fetchTemplate = async () => {
     let res;

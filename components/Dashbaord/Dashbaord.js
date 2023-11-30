@@ -94,6 +94,7 @@ const Dashbaord = ({
 
 const TemplatesListWrapper = styled.div`
   padding-top: 50px;
+
 `;
 
 const Container = styled.div`

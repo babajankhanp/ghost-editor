@@ -1,42 +1,54 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# In House CMS Mail Editor
+# # Introduction
+Welcome to our In House CMS Mail Editor, your go-to solution for crafting custom email templates with ease. This robust content editor empowers you to create personalized and visually stunning email campaigns by utilizing reusable components on the fly. Say goodbye to tedious manual coding and hello to efficient and dynamic email content generation.
 
-## Getting Started
+# Key Features
+1. Intuitive Interface
+Our user-friendly interface ensures a seamless experience, allowing both beginners and experts to navigate and create compelling email templates effortlessly.
 
-First, run the development server:
+2. Drag-and-Drop Editor
+Design emails with precision using our drag-and-drop editor. Simply drag components onto your canvas, rearrange them, and witness real-time updates to your email layout.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+3. Reusable Components
+Streamline your workflow by designing reusable components. Create once and reuse across multiple campaigns, maintaining consistency and saving valuable time.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Dynamic Content Generation
+Generate dynamic content on the fly by incorporating variables and placeholders. Personalize your emails by dynamically pulling in recipient-specific information.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+5. Responsive Design
+Ensure your emails look stunning on any device. Our editor supports responsive design principles, allowing you to create emails that adapt seamlessly to various screen sizes.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+6. Preview and Testing
+Preview your emails before sending them out to ensure they look exactly as intended. Test different devices and email clients to guarantee a consistent experience for all recipients.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+7. Version Control
+Keep track of changes with our version control feature. Easily revert to previous versions or collaborate with team members without fear of losing valuable work.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Getting Started
+# # Create a New Email:
 
-## Learn More
+- Click on "New Email" to start a fresh campaign.
+- Choose a template or start from scratch.
+- Design Your Email:
 
-To learn more about Next.js, take a look at the following resources:
+- Choose the Componenets from sidebar and Select then.
+- Customize text, images, and styles effortlessly.
+- Add Reusable Components:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Create reusable components in the "Components" section.
+- Drag these components onto your email for consistent branding.
+- Dynamic Content:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Use variables to personalize content.
+- Dynamically pull in recipient-specific information.
+- Preview and Test:
 
-## Deploy on Vercel
+- Preview your email on different devices.
+- Test with various email clients to ensure compatibility.
+- Save and Export:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Save your work and export the HTML for use in your preferred email sending platform.
+Support and Feedback
+Have questions or need assistance? Reach out to our support team at support@example.com. We value your feedback; it helps us improve and provide you with the best possible experience.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-=======
-# ghost-editor
->>>>>>> origin/master
+Thank you for choosing our In House CMS Mail Editor. Happy Emailing! 🚀📧
