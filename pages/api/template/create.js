@@ -7,9 +7,9 @@ Git - https://github.com/babajanpatan
 import {
   MongoClient
 } from 'mongodb';
-import { appEnv } from '@/helpers';
 
-const mongoUri = `${appEnv.MONGO_DB_URI}`;
+
+const mongoUri = `${process.env.COSMO_DB_URI}`;
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -30,3 +30,29 @@ export default async function handler(req, res) {
     }
   }
 }
+
+// import mongoose from 'mongoose';
+// import { appEnv } from '@/helpers';
+// import model from './model';
+
+
+
+// export default async function handler(req, res) {
+//   if (req.method === 'POST') {
+//     try {
+//       console.log('Connected to the database successfully!');
+
+//       const newTemplate = new model({
+//         name: 'Untitled',
+//         authorEmail: req?.body?.author_email,
+//       });
+
+//       await newTemplate.save();
+
+//       res.status(200).json({ data: newTemplate });
+//     } catch (err) {
+//       console.error('Failed to create template:', err);
+//       res.status(500).json({ error: 'Failed to create template' });
+//     }
+//   }
+// }

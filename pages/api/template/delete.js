@@ -10,9 +10,8 @@ import {
  ObjectId
 } from 'mongodb';
 
-import { appEnv } from '@/helpers';
 
-  const mongoUri = `${appEnv.MONGO_DB_URI}`
+const mongoUri = `${process.env.COSMO_DB_URI}`
 
 export default async function handler(req, res) {
   if (req.method === 'DELETE') {
@@ -44,3 +43,43 @@ export default async function handler(req, res) {
     res.status(405).json({ success: false, message: 'Method Not Allowed' });
   }
 }
+
+// import mongoose from 'mongoose';
+// import { appEnv } from '@/helpers';
+// import model from './model';
+// import { ObjectId } from 'mongodb';
+
+// const mongoUri = `${appEnv.MONGO_DB_URI}`;
+
+
+// export default async function handler(req, res) {
+//   if (req.method === 'DELETE') {
+//     try {
+//       console.log('Initiating database connection...');
+//       await mongoose.connect(mongoUri);
+//       console.log('Database connection established successfully!');
+
+//       const templateId = req.body.id;
+//       console.log('Attempting to delete template with ID:', templateId);
+
+//       const template = await model.findByIdAndDelete(new ObjectId(templateId));
+
+//       if (!template) {
+//         console.error('Template with ID', templateId, 'not found');
+//         return res.status(404).json({ success: false, message: 'Template not found' });
+//       }
+
+//       console.log('Template with ID', templateId, 'deleted successfully');
+//       res.status(200).json({ success: true, message: 'Template deleted successfully' });
+//     } catch (error) {
+//       console.error('Error deleting template:', error);
+//       res.status(500).json({ success: false, message: 'Internal server error' });
+//     } finally {
+//       console.log('Closing database connection...');
+//       await mongoose.disconnect();
+//       console.log('Database connection closed successfully');
+//     }
+//   } else {
+//     res.status(405).json({ success: false, message: 'Method Not Allowed' });
+//   }
+// }

@@ -1,26 +1,20 @@
-// TemplateModel.js
 import mongoose from 'mongoose';
+import { appEnv } from '@/helpers';
+import { ObjectId } from 'mongodb';
 
-const templateSchema = new mongoose.Schema({
-  author: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-  },
-  name: {
-    type: String,
-    required: true,
-  },
-  template_data: {
-    type: String,
-    required: true,
-  },
-  _id: mongoose.Schema.Types.ObjectId,
+const mongoUri = `${appEnv.MONGO_DB_URI}`;
+
+mongoose.connect(mongoUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
-const TemplateModel = mongoose.model('Template', templateSchema);
+const templateSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  authorEmail: { type: String, required: true },
+  templateData: { type: Object, required: true },
+});
 
-export default TemplateModel;
+const model = mongoose.model('templates', templateSchema);
+
+export default model
