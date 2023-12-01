@@ -6,8 +6,8 @@ Welcome to our In House CMS Mail Editor, your go-to solution for crafting custom
 1. Intuitive Interface
 Our user-friendly interface ensures a seamless experience, allowing both beginners and experts to navigate and create compelling email templates effortlessly.
 
-2. Drag-and-Drop Editor
-Design emails with precision using our drag-and-drop editor. Simply drag components onto your canvas, rearrange them, and witness real-time updates to your email layout.
+2. Editor used for
+Design emails with precision using our editor . Simply click components onto your canvas, rearrange them, and witness real-time updates to your email layout.
 
 3. Reusable Components
 Streamline your workflow by designing reusable components. Create once and reuse across multiple campaigns, maintaining consistency and saving valuable time.
