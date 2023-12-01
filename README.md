@@ -49,6 +49,5 @@ Keep track of changes with our version control feature. Easily revert to previou
 
 Save your work and export the HTML for use in your preferred email sending platform.
 Support and Feedback
-Have questions or need assistance? Reach out to our support team at support@example.com. We value your feedback; it helps us improve and provide you with the best possible experience.
 
 Thank you for choosing our In House CMS Mail Editor. Happy Emailing! 🚀📧
