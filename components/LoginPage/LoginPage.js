@@ -36,7 +36,7 @@ const LoginPage = ({
            mode="modal"
            redirectUrl="/dashboard"
           >
-            <LoginBtn> Sign In</LoginBtn>
+          <Button>Sign In</Button>
           </SignInButton>
           {/* <div
             id="g_id_onload"
@@ -124,6 +124,7 @@ const Logo = styled.img`
 const AuthWrapper = styled.div`
   max-width: 400px;
   margin: auto;
+
 `;
 
 const Title = styled.h1`
@@ -182,6 +183,22 @@ const AnimatedText = styled.h6`
   display: inline-block;
   font-size: 90px;
   margin-bottom: 2rem;
+`;
+
+const Button = styled.button`
+    padding: 10px 30px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+    background-color: #6725F4;
+    border-color: #6725F4;
+    color: #fff;
+
 `;
 
 export default LoginPage;

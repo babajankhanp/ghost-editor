@@ -11,14 +11,14 @@ const app = next({dev});
 const handle = app.getRequestHandler();
 const PORT = process.env.SERVER_PORT || 9008;
 
-// // enforceStrictRouting middleware
-// function enforceStrictRouting(req, res, next) {
-//   if (req.path.endsWith('/') && req.path.length > 1) {
-//     const newPath = req.path.slice(0, -1);
-//     return res.redirect(301, newPath);
-//   }
-//   next();
-// }
+// enforceStrictRouting middleware
+function enforceStrictRouting(req, res, next) {
+  if (req.path.endsWith('/') && req.path.length > 1) {
+    const newPath = req.path.slice(0, -1);
+    return res.redirect(301, newPath);
+  }
+  next();
+}
 
 app
   .prepare()
