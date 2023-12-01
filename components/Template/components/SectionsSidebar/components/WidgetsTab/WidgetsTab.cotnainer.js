@@ -20,7 +20,6 @@ import {
   handleMagicButton,
   handleStaticTable,
   handleJSONTable,
-  handleDiagrams
 } from './utils';
 
 import WidgetsTab from './WidgetsTab';
@@ -54,9 +53,6 @@ const WidgetsTabCotnainer = () => {
         break;
       case 'json-table':
         handleJSONTable(templatePayload, setTemplatePayload);
-        break;
-      case 'diagrams':
-        handleDiagrams(templatePayload, setTemplatePayload);
         break;
 
       default:
