@@ -25,6 +25,7 @@ RUN npm run build
 # Expose the port that the app will run on
 EXPOSE 9008
 
+ENTRYPOINT ["./entrypoint.sh"]
 
 # Start the Next.js application
 CMD ["npm", "run", "start"]
