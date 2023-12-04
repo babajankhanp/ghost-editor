@@ -9,7 +9,7 @@ MAINTAINER somit srivastava "corp@wealthy.in"
 # Set the working directory in the container
 WORKDIR /user/src/app
 
-COPY .env .
+COPY .env.local .
 
 # Copy package.json and package-lock.json to the container
 COPY package*.json ./
