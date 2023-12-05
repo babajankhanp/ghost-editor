@@ -11,7 +11,6 @@ ENV LOG_DIR=/var/log/wealthy/app
 WORKDIR $PROJECT_DIR
 COPY ./entrypoint.sh $PROJECT_DIR/
 RUN chmod +x $PROJECT_DIR/entrypoint.sh
-# USER pptruser
 
 COPY . $PROJECT_DIR/
 

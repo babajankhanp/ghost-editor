@@ -11,6 +11,7 @@ import {
 const mongoUri = `${process.env.COSMO_DB_URI}`
 
 export default async function handler(req, res) {
+  console.log("uri:"+ mongoUri)
   try {
     if (req.method === 'GET') {
       const client = await MongoClient.connect(mongoUri);
