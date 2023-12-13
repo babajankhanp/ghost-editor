@@ -41,7 +41,6 @@ app
       const queryParams = {
         templateId: req.params.templateId
       };
-      console.log("query params",queryParams)
       app.render(req, res, actualPage, queryParams);
     });
 
