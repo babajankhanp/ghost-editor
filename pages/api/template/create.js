@@ -7,9 +7,11 @@ Git - https://github.com/babajanpatan
 import {
   MongoClient
 } from 'mongodb';
+import { appEnv } from '@/helpers';
 
 
-const mongoUri = `${process.env.COSMO_DB_URI}`;
+const mongoUri = `${appEnv.COSMO_DB_URI}`
+// const mongoUri = `${process.env.COSMO_DB_URI}`;
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {

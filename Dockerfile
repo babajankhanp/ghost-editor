@@ -1,20 +1,29 @@
+# Use an Wealthy alpine node image as the base image
 FROM node:19-alpine
 
-USER root
-RUN apk update && apk add aws-cli
-LABEL maintainer="somit srivastava <corp@wealthy.in>"
+MAINTAINER somit srivastava "corp@wealthy.in"
 
-ENV PROJECT_DIR=/user/src/app
+# Set the working directory in the container
+WORKDIR /user/src/app
 
-ENV LOG_DIR=/var/log/wealthy/app
+COPY .env.local .
 
-WORKDIR $PROJECT_DIR
-COPY ./entrypoint.sh $PROJECT_DIR/
-RUN chmod +x $PROJECT_DIR/entrypoint.sh
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
 
-COPY . $PROJECT_DIR/
+# Install project dependencies
+RUN npm install
 
-EXPOSE 9000
-EXPOSE 80
+# Copy the entire project to the container
+COPY . .
 
-CMD ["sh","./entrypoint.sh"]
+# Build the Next.js application
+RUN npm run build
+
+# Expose the port that the app will run on
+EXPOSE 9008
+
+# Accept environment variables from entrypoint.sh
+
+# Start the Next.js application
+ENTRYPOINT ["npm", "run", "dev"]

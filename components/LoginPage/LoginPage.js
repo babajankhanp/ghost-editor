@@ -8,7 +8,8 @@ import styled, {
   keyframes
 } from 'styled-components';
 
-import { SignedIn, SignedOut, SignInButton, SignOutButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, SignOutButton,auth } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
 
 import {
   appEnv
@@ -24,7 +25,10 @@ const LoginPage = ({
   handleLogin,
   userMail,
   setUserMail
-}) => (
+}) => {
+   const {userId, } = useAuth();
+
+  return (
   <MainWrapper>
     <FormWrapper>
       <ContentSection>
@@ -32,12 +36,16 @@ const LoginPage = ({
         <AuthWrapper>
           <Title>Welcome to Wealthy Mailer</Title>
           <Subline>Login to create templates for email</Subline>
-          <SignInButton
-           mode="modal"
-           redirectUrl="/dashboard"
-          >
+          {
+            userId ?
+           ( <ButtonRedirect href="/dashboard">Go To Dashboard</ButtonRedirect> ):
+            <SignInButton
+               mode="modal"
+                redirectUrl="/dashboard"
+            >
           <Button>Sign In</Button>
           </SignInButton>
+          }
           {/* <div
             id="g_id_onload"
             data-client_id="325665231230-l7sh66odkdhskhd59ele4469neihk095.apps.googleusercontent.com"
@@ -69,7 +77,8 @@ const LoginPage = ({
     </LoginImageWrapper>
 
   </MainWrapper>
-);
+)
+};
 
 const MainWrapper = styled.div`
   min-height: 100vh;
@@ -198,7 +207,21 @@ const Button = styled.button`
     background-color: #6725F4;
     border-color: #6725F4;
     color: #fff;
+`;
 
+const ButtonRedirect = styled.a`
+    padding: 10px 30px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    font-size: 16px;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+    background-color: #6725F4;
+    border-color: #6725F4;
+    color: #fff;
 `;
 
 export default LoginPage;

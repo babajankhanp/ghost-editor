@@ -97,12 +97,20 @@ const DashbaordContainer = () => {
   }
 };
 
-  const checkUserAuthenticated = () => {
+  const handleAuth = () => {
     console.log("hellooooooooooooo")
      if (!isLoaded || !userId) {
       window.location.href = '/';
   }
   }
+
+(function handleAuth() {
+  // some initiation code
+  if (userId){
+   localStorage.setItem("AuthId", userId);
+  }
+})();
+
 console.log("userId", userId)
 
 console.log("template",templates?.id)
