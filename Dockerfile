@@ -21,7 +21,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port that the app will run on
-EXPOSE 9008
+EXPOSE 3000
 
 # Accept environment variables from entrypoint.sh
 
