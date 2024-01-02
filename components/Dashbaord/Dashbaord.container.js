@@ -97,17 +97,22 @@ const DashbaordContainer = () => {
   }
 };
 
-  const checkUserAuthenticated = () => {
-    console.log("hellooooooooooooo")
-     if (!isLoaded || !userId) {
-      window.location.href = '/';
-  }
-  }
-console.log("userId", userId)
+//   const handleAuth = () => {
+//     console.log("hellooooooooooooo")
+//      if (!isLoaded || !userId) {
+//       window.location.href = '/';
+//   }
+//   }
 
-console.log("template",templates?.id)
+// (function handleAuth() {
+//   // some initiation code
+//   if (userId){
+//    localStorage.setItem("AuthId", userId);
+//   }
+// })();
+
+
   useEffect(() => {
-    // checkUserAuthenticated();
     fetchData();
   }, []);
 

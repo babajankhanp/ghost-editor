@@ -3,9 +3,6 @@ FROM node:19-alpine
 
 MAINTAINER somit srivastava "corp@wealthy.in"
 
-# Set environment variables
-
-
 # Set the working directory in the container
 WORKDIR /user/src/app
 
@@ -24,9 +21,10 @@ COPY . .
 RUN npm run build
 
 # Expose the port that the app will run on
-EXPOSE 9008
+EXPOSE 3000
+EXPOSE 80
 
-ENTRYPOINT ["./entrypoint.sh"]
+# Accept environment variables from entrypoint.sh
 
 # Start the Next.js application
-CMD ["npm", "run", "start"]
+ENTRYPOINT ["npm", "run", "dev"]
