@@ -10,7 +10,7 @@ import {
 import { appEnv } from '@/helpers';
 
 
-const mongoUri = `${appEnv.COSMO_DB_URI}`
+const mongoUri = `${appEnv.MongoDB_URL}`
 // const mongoUri = `${process.env.COSMO_DB_URI}`
 
 export default async function handler(req, res) {
