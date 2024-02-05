@@ -9,7 +9,10 @@ import {
   ObjectId
 } from 'mongodb';
 
-const mongoUri = `${process.env.MongoDB_URL}`
+import { appEnv } from '@/helpers';
+
+
+const mongoUri = `${appEnv.MongoDB_URL}`
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
