@@ -32,9 +32,9 @@ const LoginPage = ({
   <MainWrapper>
     <FormWrapper>
       <ContentSection>
-        <Logo src={wealthyLogo} />
+       Babajan 
         <AuthWrapper>
-          <Title>Welcome to Wealthy Mailer</Title>
+          <Title>Welcome to  Mailer</Title>
           <Subline>Login to create templates for email</Subline>
           {
             userId ?
@@ -67,7 +67,7 @@ const LoginPage = ({
           /> */}
         </AuthWrapper>
         <Copyright>
-          &copy; Wealthy 2023
+          &copy; All rights reserved @Babajan 2023
         </Copyright>
       </ContentSection>
     </FormWrapper>
