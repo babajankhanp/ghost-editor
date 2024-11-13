@@ -32,9 +32,9 @@ const LoginPage = ({
   <MainWrapper>
     <FormWrapper>
       <ContentSection>
-        <Logo src={wealthyLogo} />
+       Babajan 
         <AuthWrapper>
-          <Title>Welcome to Wealthy Mailer</Title>
+          <Title>Welcome to  Mailer</Title>
           <Subline>Login to create templates for email</Subline>
           {
             userId ?

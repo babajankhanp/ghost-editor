@@ -13,7 +13,7 @@ import {
 const index = () => (
   <>
     <Head>
-      <title>Dashboard | Wealthy Mailer</title>
+      <title>Dashboard | Mailer</title>
     </Head>
     <Dashbaord />
   </>
