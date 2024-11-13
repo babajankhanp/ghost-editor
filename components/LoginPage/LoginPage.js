@@ -67,7 +67,7 @@ const LoginPage = ({
           /> */}
         </AuthWrapper>
         <Copyright>
-          &copy; Wealthy 2023
+          &copy; All rights reserved @Babajan 2023
         </Copyright>
       </ContentSection>
     </FormWrapper>
