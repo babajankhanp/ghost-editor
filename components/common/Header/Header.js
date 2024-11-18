@@ -26,9 +26,8 @@ const Header = ({
   <HeaderWrapper>
     <HeaderBar>
       <LogoWrapper>
-        <Logo src={wealthyLogo} />
         <AppTitle>
-          Mailer
+          Ghost Emailer
         </AppTitle>
       </LogoWrapper>
       <UserInfoWrapper onClick={handleLogout}>
